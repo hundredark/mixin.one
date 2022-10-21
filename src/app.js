@@ -28,7 +28,7 @@ router.replace = function (url) {
 
 router.hooks({
   before: function (done, params) {
-    if (window.location.host.includes('github')) params.url = '/mixin.one' + url
+    if (window.location.host.includes('github')) params.url = '/mixin.one' + params.url
 
     $('body').attr('class', 'loading layout');
     $('#layout-container').html(PartialLoading());
