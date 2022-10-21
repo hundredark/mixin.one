@@ -43,6 +43,13 @@ router.hooks({
     } else {
       $('link[rel=canonical]').attr('href', canonical);
     }
+
+    if (window.location.host.includes('github')) {
+      const eleArr = document.querySelectorAll('a');
+      for (let ele of eleArr) {
+        if (ele.href.startsWith('/') && !ele.href.includes('.')) ele.href = '/mixin.one' + ele.href;
+      }
+    }
   }
 });
 
