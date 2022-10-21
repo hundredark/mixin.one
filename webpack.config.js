@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WebappWebpackPlugin = require('favicons-webpack-plugin');
+const { BaseHrefWebpackPlugin } = require('base-href-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -82,6 +83,7 @@ module.exports = {
         }
       },
     }),
+    new BaseHrefWebpackPlugin({ baseHref: process.env.NODE_ENV === 'github' ? '/mixin.one' : '/' }),
     new WebappWebpackPlugin({
       logo: './src/launcher.png',
       prefix: 'icons/'
