@@ -108,3 +108,8 @@ router.on({
   $('body').attr('class', 'error layout');
   router.updatePageLinks();
 }).resolve();
+
+router.routes = [...router.routes, ...router.routes.map((route) => {
+  route.path = '/mixin.one' + route.path;
+  return route;
+})]
