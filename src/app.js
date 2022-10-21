@@ -44,10 +44,11 @@ router.hooks({
       $('link[rel=canonical]').attr('href', canonical);
     }
 
-    if (window.location.host.includes('github')) {
+    if (window.location.host.includes('github.io')) {
       const eleArr = document.querySelectorAll('a');
       for (let ele of eleArr) {
-        if (ele.href.startsWith('/') && !ele.href.includes('.')) ele.href = '/mixin.one' + ele.href;
+        if (!ele.href.includes('/assets/') && ele.href.includes('github.io'))
+          ele.href = window.location.toString().replace(window.location.host, window.location.host + '/mixin.one')
       }
     }
   }
