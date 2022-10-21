@@ -28,7 +28,6 @@ router.replace = function (url) {
 
 router.hooks({
   before: function (done, params) {
-    if (window.location.host.includes('github.io')) params.url = params.url.split('/mixin.one/')[1]
     $('body').attr('class', 'loading layout');
     $('#layout-container').html(PartialLoading());
     setTimeout(function () {
@@ -43,14 +42,6 @@ router.hooks({
       $('head').append(`<link rel="canonical" href="${canonical}" />`);
     } else {
       $('link[rel=canonical]').attr('href', canonical);
-    }
-
-    if (window.location.host.includes('github.io')) {
-      const eleArr = document.querySelectorAll('a');
-      for (let ele of eleArr) {
-        if (!ele.href.includes('/assets/') && ele.href.includes('github.io'))
-          ele.href = ele.href.replace(window.location.host, window.location.host + '/mixin.one')
-      }
     }
   }
 });
