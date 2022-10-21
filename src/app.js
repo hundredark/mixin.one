@@ -28,6 +28,7 @@ router.replace = function (url) {
 
 router.hooks({
   before: function (done, params) {
+    if (window.location.host.includes('github.io')) params.url = params.url.split('/mixin.one')[1]
     $('body').attr('class', 'loading layout');
     $('#layout-container').html(PartialLoading());
     setTimeout(function () {
