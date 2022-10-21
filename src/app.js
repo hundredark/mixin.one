@@ -23,7 +23,7 @@ const api = new API(router, API_ROOT, BLAZE_ROOT);
 window.i18n = new Locale(navigator.language);
 
 router.replace = function (url) {
-  if (window.location.host.includes('github') && url.startsWith('/')) url = '/mixin.one' + url;
+  if (window.location.host.includes('github')) url = '/mixin.one' + url;
   this.navigate(url);
 };
 
