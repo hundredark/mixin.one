@@ -48,7 +48,7 @@ router.hooks({
       const eleArr = document.querySelectorAll('a');
       for (let ele of eleArr) {
         if (!ele.href.includes('/assets/') && ele.href.includes('github.io'))
-          ele.href = window.location.toString().replace(window.location.host, window.location.host + '/mixin.one')
+          ele.href = ele.href.replace(window.location.host, window.location.host + '/mixin.one')
       }
     }
   }
